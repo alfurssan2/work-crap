@@ -1,0 +1,158 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Inter", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+
+  --color-navy: #0F172A; /* Slate 900 */
+  --color-cobalt: #1E293B; /* Slate 800 */
+  --color-steel: #334155; /* Slate 700 */
+  --color-sky: #6366F1; /* Indigo 500 */
+  --color-ice: #F1F5F9; /* Slate 100 */
+  --color-sand: #F8FAFC; /* Slate 50 */
+  --color-gold: #F59E0B; /* Amber 500 */
+  --color-amber: #F97316; /* Orange 500 */
+  --color-mint: #10B981; /* Emerald 500 */
+  --color-rose: #EF4444; /* Red 500 */
+  --color-muted: #64748B; /* Slate 500 */
+  --color-border: #E2E8F0; /* Slate 200 */
+
+  --color-rag-g: #10B981;
+  --color-rag-a: #F59E0B;
+  --color-rag-r: #EF4444;
+
+  --color-f-cs: #6366F1;
+  --color-f-km: #0D9488;
+  --color-f-inn: #F97316;
+  --color-f-cm: #8B5CF6;
+  --color-f-eq: #B45309;
+}
+
+@layer base {
+  body {
+    @apply bg-sand text-navy font-sans font-normal overflow-x-hidden antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-sans font-bold tracking-tight;
+  }
+}
+
+@layer components {
+  .tn-btn {
+    @apply flex items-center gap-2 px-4 py-2 border-none bg-transparent font-sans text-[0.65rem] font-bold tracking-wider uppercase text-slate-400 whitespace-nowrap border-b-2 border-transparent transition-all duration-200 hover:text-white hover:bg-white/5;
+  }
+
+  .tn-btn.active {
+    @apply text-white border-b-sky bg-white/10;
+  }
+
+  .mspill {
+    @apply inline-flex items-center gap-1.5 border border-slate-200 rounded-sm px-2.5 py-1.5 font-sans text-[0.6rem] font-semibold tracking-tight bg-white cursor-pointer transition-all duration-200 whitespace-nowrap shrink-0 shadow-sm hover:shadow-md hover:border-slate-400 active:scale-95;
+  }
+
+  .mspill.key-pill {
+    @apply border-2 border-slate-800 shadow-md;
+  }
+
+  .mspill.done {
+    @apply opacity-40 grayscale-[0.3];
+  }
+
+  .act-card {
+    @apply rounded-sm px-2 py-2 text-[0.65rem] leading-snug border border-slate-200 border-l-4 bg-white cursor-pointer transition-all duration-200 relative shadow-sm hover:shadow-lg hover:z-20;
+  }
+
+  .act-card.done-card {
+    @apply opacity-40 grayscale-[0.3];
+  }
+
+  .act-card.done-card .ac-lbl {
+    @apply line-through;
+  }
+
+  .act-card.risk-card {
+    @apply border-l-amber bg-orange-50/30;
+  }
+
+  .act-card.deliverable-card::after {
+    content: '→';
+    @apply absolute top-1 right-1 text-[0.55rem] text-slate-400 font-bold;
+  }
+
+  .rag-pill {
+    @apply inline-flex items-center gap-1.5 font-sans text-[0.55rem] font-bold tracking-wider uppercase rounded-sm px-2 py-0.5 mt-1 border transition-all duration-200 cursor-pointer w-fit shadow-sm hover:bg-slate-50;
+  }
+
+  .rag-pill.rg { @apply bg-emerald-50 text-emerald-600 border-emerald-200; }
+  .rag-pill.ra { @apply bg-amber-50 text-amber-600 border-amber-200; }
+  .rag-pill.rr { @apply bg-red-50 text-red-600 border-red-200; }
+  .rag-pill.rb { @apply bg-slate-50 text-slate-500 border-slate-200; }
+
+  .slip-badge {
+    @apply inline-block font-mono text-[0.55rem] font-bold tracking-tighter rounded-sm px-1.5 py-0.5 ml-1.5 align-middle shrink-0;
+  }
+  .slip-late { @apply bg-red-100 text-red-700; }
+  .slip-late3 { @apply bg-red-200 text-red-800; }
+  .slip-early { @apply bg-emerald-100 text-emerald-700; }
+
+  .ghost-card {
+    @apply rounded-sm px-1.5 py-1 text-[0.6rem] leading-tight border border-dashed border-slate-300 bg-slate-50 opacity-40 pointer-events-none whitespace-nowrap overflow-hidden text-ellipsis;
+  }
+
+  .ghost-pill {
+    @apply inline-flex items-center gap-1 border border-dashed border-slate-300 rounded-sm px-2 py-0.5 font-sans text-[0.55rem] font-bold opacity-40 bg-slate-50 pointer-events-none whitespace-nowrap;
+  }
+}
+
+/* PMP Professional Grid Layouts - Fluid Widths for Alignment */
+.q-banner {
+  display: grid;
+  grid-template-columns: 200px repeat(12, minmax(60px, 1fr));
+  width: 100%;
+}
+
+.mh-row-m {
+  display: grid;
+  grid-template-columns: 200px repeat(12, minmax(60px, 1fr));
+  width: 100%;
+}
+
+.fn-row-m {
+  display: grid;
+  grid-template-columns: 200px repeat(12, minmax(60px, 1fr));
+  width: 100%;
+}
+
+.q-banner-d {
+  display: grid;
+  grid-template-columns: 185px repeat(12, minmax(60px, 1fr));
+  width: 100%;
+}
+
+.mh-row-d {
+  display: grid;
+  grid-template-columns: 185px repeat(12, minmax(60px, 1fr));
+  width: 100%;
+}
+
+.init-row {
+  display: grid;
+  grid-template-columns: 185px repeat(12, minmax(60px, 1fr));
+  width: 100%;
+}
+
+/* Visible Grid Lines */
+.grid-cell-pmp {
+  @apply border-r border-slate-200 border-dashed;
+}
+
+.grid-cell-pmp-solid {
+  @apply border-r border-slate-200;
+}
+
+.grid-q-divider {
+  @apply border-l-2 border-slate-300;
+}
